@@ -1,10 +1,7 @@
 class UsersController < ApplicationController
 
     def index 
-        # render plain: 'Dave and veras first rails request'
-        # if(User.present? LIKE "%#{query}%")))
         if(params[:query])
-            # like an SQL query
             @users = User.where('username iLIKE (?)', '%' + params[:query] + '%' )
         else
             @users = User.all
@@ -28,13 +25,10 @@ class UsersController < ApplicationController
     end
 
     def update
-        # debugger
         user = User.find(params[:id])
         if user.update(user_params)
-            # debugger
             render json: user
         else
-            # debugger
             render json: user.errors.full_messages, status: :unprocessable_entity
         end
     end

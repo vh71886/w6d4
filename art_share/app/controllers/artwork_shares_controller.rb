@@ -31,7 +31,6 @@ class ArtworkSharesController < ApplicationController
     # end
 
     def destroy
-        # debugger
         artwork_share = ArtworkShare.find(params[:id])
 
         if artwork_share.destroy

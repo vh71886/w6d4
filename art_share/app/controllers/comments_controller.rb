@@ -1,7 +1,6 @@
 
 class CommentsController < ApplicationController
     def index 
-        # render plain: 'Dave and veras first rails request'
         @comments = User.find(params[:user_id]).comments
         render json: @comments
     end
