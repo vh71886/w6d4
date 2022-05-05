@@ -45,7 +45,7 @@ class CommentsController < ApplicationController
         end
     end
 
-    # Ran DELETE: localhost:3000/comments/1         ----- DOES delete comment id 1 ------
+    # Ran DELETE: localhost:3000/comments/1         ----- DOES delete comment id 1, but user_comments_url does not have user ID access  ------
     # ActionController::UrlGenerationError (No route matches {:action=>"index", :controller=>"comments", :id=>"1"}, missing required keys: [:user_id]):
     # app/controllers/comments_controller.rb:40:in `destroy'
 
