@@ -2,7 +2,13 @@ class UsersController < ApplicationController
 
     def index 
         # render plain: 'Dave and veras first rails request'
-        @users = User.all
+        # if(User.present? LIKE "%#{query}%")))
+        if(params[:query])
+            # like an SQL query
+            @users = User.where('username iLIKE (?)', '%' + params[:query] + '%' )
+        else
+            @users = User.all
+        end
         render json: @users
     end
 
